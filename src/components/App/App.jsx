@@ -33,7 +33,10 @@ export default function App() {
     });
   }
 
-  const totalFeedback = feedbacks.good + feedbacks.neutral + feedbacks.bad;
+  const totalFeedback = Object.values(feedbacks).reduce(
+    (acc, value) => acc + value,
+    0
+  );
 
   useEffect(() => {
     localStorage.setItem(LS_KEY, JSON.stringify(feedbacks));
