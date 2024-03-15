@@ -38,6 +38,10 @@ export default function App() {
     0
   );
 
+  const stats = Math.round(
+    ((feedbacks.good + feedbacks.neutral) / totalFeedback) * 100
+  );
+
   useEffect(() => {
     localStorage.setItem(LS_KEY, JSON.stringify(feedbacks));
   }, [feedbacks]);
@@ -51,7 +55,7 @@ export default function App() {
         total={totalFeedback}
       />
       {totalFeedback > 0 ? (
-        <Feedback feedbacks={feedbacks} total={totalFeedback} />
+        <Feedback feedbacks={feedbacks} total={totalFeedback} stats={stats} />
       ) : (
         <Notification />
       )}

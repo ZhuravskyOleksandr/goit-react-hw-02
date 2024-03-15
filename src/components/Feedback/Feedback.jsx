@@ -1,10 +1,6 @@
 import css from './Feedback.module.css';
 
-export default function Feedback({ feedbacks, total }) {
-  const stats = Math.round(
-    ((feedbacks.good + feedbacks.neutral) / total) * 100
-  );
-
+export default function Feedback({ feedbacks, total, stats }) {
   return (
     <ul>
       <li>Good: {feedbacks.good}</li>
